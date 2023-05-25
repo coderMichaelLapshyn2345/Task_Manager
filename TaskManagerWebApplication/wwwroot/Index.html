@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>TaskManagerAPI For Free</title>
+    <link rel="stylesheet" href="css/StyleSheet.css" />
+
+
+</head>
+<body>
+    <h1 class="form-control-color">TaskManagerAPI For Free</h1>
+    <h3 class="add-assignment">Додати завдання</h3>
+
+    <form action="javascript:void(0);" method="POST" onsubmit="addAssignment()">
+        <input type="text" id="add-name" placeholder="Назва завдання" />
+        <input type="text" id="add-description" placeholder="Опис завдання" />
+        <input type="datetime" id="add-deadline" placeholder="Термін виконання" />
+        <input type="text" id="add-status" placeholder="Статус" />
+        <input type="number" id="add-performer" placeholder="ID виконавця" />
+        <input type="submit" value="Додати завдання" />
+
+    </form>
+
+
+    <div id="edit-assignment">
+        <h3>Редагувати завдання</h3>
+        <form action="javascript:void(0);" onsubmit="updateAssignment()">
+            <input type="hidden" id="edit-id" />
+            <input type="text" id="edit-name" />
+            <input type="text" id="edit-description" />
+            <input type="datetime" id="edit-deadline" />
+            <input type="text" id="edit-status" />
+            <input type="number" id="edit-performer" />
+            <input type="submit" value="Зберегти зміни" />
+            <a onclick="closeInput()" aria-label="Close">&#10006</a>
+        </form>
+    </div>
+    <table>
+        <tr>
+            <th>Назва завдання</th>
+            <th>Опис завдання</th>
+            <th>Термін виконання</th>
+            <th>Статус</th>
+            <th>Виконавець</th>
+        </tr>
+        <tbody id="assignments"></tbody>
+    </table>
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getAssignments();
+    </script>
+</body>
+</html>
